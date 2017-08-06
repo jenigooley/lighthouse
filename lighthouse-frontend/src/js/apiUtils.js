@@ -1,0 +1,25 @@
+import React from 'react';
+
+
+export function postFeedback(data) {
+  fetch('http://localhost:3001/feedback/', {
+  	method: 'POST',
+  	body: JSON.stringify(data),
+  	headers: new Headers({
+  		'Content-Type': 'application/json'
+  	})
+  }).then(response => {
+      return response.json();
+  });
+};
+
+export function getFeedbackList() {
+  fetch('http://localhost:3001/', {
+  	method: 'GET',
+  	headers: new Headers({
+  		'Content-Type': 'application/json'
+  	})
+  }).then(response => {
+    return response.json();
+  });
+};

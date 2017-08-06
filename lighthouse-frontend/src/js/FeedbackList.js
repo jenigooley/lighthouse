@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import postFeedback, { getFeedbackList } from '../apiUtils.js'
+import { postFeedback, getFeedbackList } from './apiUtils.js'
 
-export default class App extends Component {
+export default class FeedbackList extends Component {
 
    constructor(props) {
    super(props);
@@ -19,8 +19,8 @@ export default class App extends Component {
    }
 
    handleSubmit(e) {
-   e.preventDefault();
-   postFeedback(this.state)
+     e.preventDefault();
+     postFeedback(this.state)
    }
 
    render() {

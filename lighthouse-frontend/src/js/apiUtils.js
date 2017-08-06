@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export function postFeedback(data) {
   fetch('http://localhost:3001/feedback/', {
   	method: 'POST',

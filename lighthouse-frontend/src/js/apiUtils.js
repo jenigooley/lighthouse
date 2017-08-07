@@ -13,12 +13,18 @@ export function postFeedback(data) {
 };
 
 export function getFeedbackList() {
-  fetch('http://localhost:3001/', {
-  	method: 'GET',
-  	headers: new Headers({
-  		'Content-Type': 'application/json'
-  	})
-  }).then(response => {
-    return response.json();
+  return new Promise((resolve, reject) => {
+    fetch('http://localhost:3001/', {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).then(response => {
+      return response.json();
+    }).then(json => {
+      resolve(json);
+    }).catch(e => {
+      reject(e);
+    });
   });
 };

@@ -1,11 +1,12 @@
 import React from 'react';
 
 export function postFeedback(data) {
+  console.log('post client:', JSON.stringify(data))
   fetch('http://localhost:3001/feedback/', {
   	method: 'POST',
   	body: JSON.stringify(data),
   	headers: new Headers({
-  		'Content-Type': 'application/json'
+  		'Content-Type': 'text'
   	})
   }).then(response => {
       return response.json();

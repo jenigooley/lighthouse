@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { postFeedback, getFeedbackList } from './apiUtils.js'
 
+import '../feedbackList.css';
+
 export default class FeedbackList extends Component {
 
    constructor(props) {
@@ -29,23 +31,68 @@ export default class FeedbackList extends Component {
 
    handleSubmit(e) {
      e.preventDefault();
-     postFeedback(this.state)
+       postFeedback({ companyName: this.state.companyName})
    }
 
    render() {
+     const data = {
+       'date': '2017-01-26',
+       'user': {
+         'firstName': 'Annie',
+         'lastName': 'Stargazer',
+         'type': 'Partner'
+       },
+       'companyName': 'Dogs are Gods Inc',
+       'participants': ['Mildred', 'Saxon', 'Dorothy'],
+       'tags': ['schedule', 'invoice', 'load time'],
+       'attachments': [
+         {
+           'filename': 'too_much_sauce',
+           'url': ""
+         },
+       ],
+       'notes': "There was something in her black eyes that was as insubstantial as light but at the same time slower and darker than water, slower than anything I had ever seen. It reminded me of one of those moments of sadness that sometimes come when you're waiting for an inconsequential thing, like an elevator or a stop on the subway, and feel a pause that is so still that it seals itself up around you, lifts away from the stream of time, and hangs suspended there. I felt drawn toward her, the way molecules in motion are drawn toward empty spaces."
+     }
+
+     const participants = data.participants;
+
      return (
-       <form onSubmit={ this.handleSubmit }>
-         <input
-           type='companyName'
-           placeholder='Say something…'
-           value={ this.state.companyName }
-           onChange={ this.handleCompanyNameChange }
-         />
-         <input
-           type='submit'
-           value='feedback'
-         />
-       </form>
+       <div className="typeface flex-display-column width-100">
+
+        <div className="font-16">
+        Today at {data.date}
+        {data.companyName}
+        </div>
+        <div className="font-14 flex-display">
+         Led by {participants.map(participant => (
+          <div className="margin-8">
+        {participant}
+         </div>
+        )
+        )}
+        </div>
+        <div className="flex-display">
+        {data.tags.map(tag => (
+         <div className="margin-8">
+          {tag}
+          </div>
+         )
+       )}
+     </div>
+        </div>
      )
     }
   }
+
+  // <form onSubmit={ this.handleSubmit }>
+  //   <input
+  //     type='companyName'
+  //     placeholder='Say something…'
+  //     value={ this.state.companyName }
+  //     onChange={ this.handleCompanyNameChange }
+  //   />
+  //   <input
+  //     type='submit'
+  //     value='feedback'
+  //   />
+  // </form>

@@ -57,23 +57,23 @@ export default class FeedbackList extends Component {
      const participants = data.participants;
 
      return (
-       <div className="typeface flex-display-column width-100">
+       <div className="container">
 
-        <div className="font-16">
+        <div className="date">
         Today at {data.date}
         {data.companyName}
         </div>
-        <div className="font-14 flex-display">
+        <div className="participants">
          Led by {participants.map(participant => (
-          <div className="margin-8">
+          <div className="name">
         {participant}
          </div>
         )
         )}
         </div>
-        <div className="flex-display">
+        <div className="participants">
         {data.tags.map(tag => (
-         <div className="margin-8">
+         <div className="name">
           {tag}
           </div>
          )

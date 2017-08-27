@@ -21,6 +21,7 @@ export function getFeedbackList() {
         'Content-Type': 'application/json'
       })
     }).then(response => {
+      console.log(response.json())
       return response.json();
     }).then(json => {
       resolve(json);

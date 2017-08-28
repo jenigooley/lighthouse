@@ -30,7 +30,8 @@ export default class FeedbackForm extends Component{
   }
 
   handleParticipantsChange(e) {
-    this.setState({ participants: e.target.value });
+    console.log('parts', this.state.participants)
+    participants = e.target.value;
   }
 
   handleUserTypeChange(e) {
@@ -43,6 +44,7 @@ export default class FeedbackForm extends Component{
 
   handleSubmit(e) {
     e.preventDefault();
+    this.state.participants.push(participants)
       postFeedback({
         company: this.state.company,
         date: this.state.date,
@@ -53,6 +55,7 @@ export default class FeedbackForm extends Component{
     }
 
   render() {
+    let participants = [];
     return (
       <form onSubmit={ this.handleSubmit }>
         <input
@@ -69,6 +72,16 @@ export default class FeedbackForm extends Component{
           type='userType'
           placeholder='user type'
           onChange={ this.handleUserTypeChange }
+        />
+        <input
+          type='participants'
+          placeholder='participants'
+          onChange={ this.handleParticipantsChange(participants) }
+        />
+        <input
+          type='participants'
+          placeholder='participants'
+          onChange={ this.handleParticipantsChange }
         />
         <input
           type='participants'

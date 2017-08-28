@@ -29,15 +29,11 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => {
   db.collection('Feedback').find().toArray(function(err, results) {
-    console.log('server GET:', results);
     res.send(results)
   });
 });
 
 app.post('/feedback', (req, res) => {
-  console.log('body:', req.body);
-  console.log('headers:', req.headers);
-  console.log('method:', req.method);
   db.collection('Feedback').save(req.body, (err, result) => {
   if (err) {
     return console.log(err);

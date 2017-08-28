@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function postFeedback(data) {
-  console.log('post client:', JSON.stringify(data))
   fetch('http://localhost:3001/feedback/', {
   	method: 'POST',
   	body: JSON.stringify(data),
@@ -23,7 +22,6 @@ export function getFeedbackList() {
     }).then(response => {
       return response.json();
     }).then(json => {
-      console.log(json);
       resolve(json);
     }).catch(e => {
       reject(e);

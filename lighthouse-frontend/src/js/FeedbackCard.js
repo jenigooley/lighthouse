@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import '../feedbackCard.css';
 
 export default function FeedbackCard(props) {
-  const data = props.card
+  const data = props.feedback;
   const participants = data.participants;
   participants.splice(-1, 0, 'and');
 

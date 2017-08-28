@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 
 let db;
 
-MongoClient.connect('mongodb://jeni:welovejapan1@ds129013.mlab.com:29013/lighthousebyq', (err, database) => {
+MongoClient.connect('mongodb://*******@ds129013.mlab.com:29013/lighthousebyq', (err, database) => {
   if (err) {
     return console.log(err);
   }

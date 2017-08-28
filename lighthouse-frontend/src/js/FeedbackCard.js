@@ -36,16 +36,3 @@ export default function FeedbackCard(props) {
       </div>
    )
   }
-
-  // <form onSubmit={ this.handleSubmit }>
-  //   <input
-  //     type='companyName'
-  //     placeholder='Say something…'
-  //     value={ this.state.companyName }
-  //     onChange={ this.handleCompanyNameChange }
-  //   />
-  //   <input
-  //     type='submit'
-  //     value='feedback'
-  //   />
-  // </form>

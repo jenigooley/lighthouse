@@ -6,7 +6,7 @@ export function postFeedback(data) {
   	method: 'POST',
   	body: JSON.stringify(data),
   	headers: new Headers({
-  		'Content-Type': 'text'
+  		'Content-Type': 'application/json'
   	})
   }).then(response => {
       return response.json();
@@ -21,7 +21,6 @@ export function getFeedbackList() {
         'Content-Type': 'application/json'
       })
     }).then(response => {
-      console.log(response.json())
       return response.json();
     }).then(json => {
       resolve(json);

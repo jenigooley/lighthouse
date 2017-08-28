@@ -23,6 +23,7 @@ export function getFeedbackList() {
     }).then(response => {
       return response.json();
     }).then(json => {
+      console.log(json);
       resolve(json);
     }).catch(e => {
       reject(e);

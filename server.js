@@ -29,6 +29,7 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => {
   db.collection('Feedback').find().toArray(function(err, results) {
+    console.log('server GET:', results);
     res.send(results)
   });
 });

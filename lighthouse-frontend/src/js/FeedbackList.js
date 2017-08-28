@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { postFeedback, getFeedbackList } from './apiUtils.js'
 
+import { getFeedbackList } from './apiUtils.js'
 import FeedbackCard from './FeedbackCard.js';
 import FeedbackForm from './FeedbackForm.js'
+
 const cards = [
   {
     'date': '2017-01-26',
@@ -54,18 +55,18 @@ const cards = [
 export default class FeedbackList extends Component {
   constructor(props) {
     super(props);
-    this.state = {feedbackList: {} };
+    this.state = {feedbackList: [] };
     this.componentDidMount = this.componentDidMount.bind(this);
   }
-
-  initialState
 
   componentDidMount(){
    getFeedbackList().then(feedbackList => {
      this.setState({ feedbackList });
+     console.log(this.state)
    }).catch(e => {
      console.log(e);
    });
+   console.log('STATE:', this.state);
   }
 
   render() {

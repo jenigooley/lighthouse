@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { postFeedback, getFeedbackList } from './apiUtils.js'
+import { postFeedback } from './apiUtils.js'
 
 export default class FeedbackForm extends Component{
  constructor(props) {
